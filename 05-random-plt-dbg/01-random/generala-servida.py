@@ -21,9 +21,6 @@ def tirar():
         tirada.append(random.randint(1,6)) 
     return tirada
 
-tirada = tirar()
-print(tirada)
-
 def es_generala(tirada):
     return max(tirada) == min(tirada)
 

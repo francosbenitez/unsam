@@ -5,8 +5,23 @@ Si uno juega con las reglas originales (se puede volver a tirar algunos de los c
 Extra: Hay gente que, si en la primera tirada le salen todos dados diferentes, los mete al cubilete y tira los cinco nuevamente. Otras personas, eligen uno de esos dados diferentes, lo guardan, y tiran sólo los cuatro restantes. ¿Podés determinar, por medio de simulaciones, si hay una de estas estrategias que sea mejor que la otra?
 """
 
-probabilidad = 1*(1/6)*(1/6)*(1/6)*(1/6)
+import random
 
-probabilidad = round(probabilidad, 5)
+def tirar():
+    tirada=[]
+    for i in range(5):
+        tirada.append(random.randint(1,6)) 
+    return tirada
 
-print("La probabilidad de obtener una generala es:", probabilidad)
+def es_generala(tirada):
+    return max(tirada) == min(tirada)
+
+def generala_tres():
+    G = sum([es_generala(tirar()) for i in range(3)])
+    return True if G > 0 else False
+
+N = 1000000
+G = sum([generala_tres() for i in range(N)])
+prob = G/N
+print(f'Tiré {N} veces, de las cuales {G} saqué generala servida.')
+print(f'Podemos estimar la probabilidad de sacar generala servida en tres tiradas mediante {prob:.6f}.')
