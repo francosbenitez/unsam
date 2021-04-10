@@ -19,6 +19,7 @@ def album_incompleto(A):
     for elemento in A: 
         if elemento == 0:
             print(True)
+            break
         else: 
             print(False)
             
