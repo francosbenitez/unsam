@@ -15,7 +15,6 @@ Observación: Spyder tiene opciones para mostrar las figuras dentro de la misma 
 
 import csv
 import matplotlib.pyplot as plt
-import numpy as np
 
 def leer_arboles(nombre_archivo):
     arboles = list()
@@ -30,8 +29,6 @@ def leer_arboles(nombre_archivo):
 arboleda = leer_arboles("Data/arbolado.csv")
 
 alt_jac = [ float(arbol["altura_tot"]) for arbol in arboleda if arbol["nombre_com"] == "Jacarandá"]
-alt_diam_jac = [ (float(arbol["altura_tot"]), float(arbol["diametro"])) for arbol in arboleda if arbol["nombre_com"] == "Jacarandá"]
 plt.hist(alt_jac, bins = 20)
-plt.xlabel("Alto/cm")
-plt.ylabel("Num.Individuos")
-
+plt.xlabel("Alto en cm.")
+plt.ylabel("Num. de individuos")

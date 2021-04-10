@@ -40,8 +40,10 @@ def leer_arboles(nombre_archivo):
 
 arboleda = leer_arboles("Data/arbolado.csv")
 
-alt_diam_jac = [ (float(arbol["altura_tot"]), float(arbol["diametro"])) for arbol in arboleda if arbol["nombre_com"] == "Jacarandá"]
-h = np.array(alt_diam_jac)[:,0] # convertir los diccionarios a array
-d = np.array(alt_diam_jac)[:,1]
-plt.scatter(d, h, alpha = 0.3)
-plt.title("gg")
+alt_diam_jac = [(float(arbol["altura_tot"]), float(arbol["diametro"])) for arbol in arboleda if arbol["nombre_com"] == "Jacarandá"]
+altura = np.array(alt_diam_jac)[:,0] 
+diametro = np.array(alt_diam_jac)[:,1]
+plt.scatter(diametro, altura, alpha = 0.3)
+plt.xlabel("diametro (cm)")
+plt.ylabel("alto (m)")
+plt.title("Relación diámetro-alto para Jacarandás")
