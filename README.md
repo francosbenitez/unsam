@@ -1,2 +1,1 @@
-# python
-📉 Miscellaneous Python projects
+# python-unsam
