@@ -9,4 +9,9 @@ plt.hist(temperaturas,bins=25)
 Ajustá la cantidad de bins para que el gráfico se vea lo mejor posible.
 """
 
+import numpy as np
+import matplotlib.pyplot as plt
 
+mediciones = np.load('Data/Temperaturas.npy')
+plt.hist(mediciones, bins=25)
+plt.show()

@@ -26,12 +26,12 @@ def generar_punto():
     y = random.random()
     return x, y 
 
-N=100000
-M=0
-for i in range(N):
+n = 100000
+m = 0
+for i in range(n):
     x, y = generar_punto()
     if x**2 + y**2 < 1:
-        M+=1
+        m += 1
         
-print(f"pi {4*M/N:.5f}")
+print(f"pi {4*m/n:.5f}")
 
