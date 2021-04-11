@@ -12,8 +12,6 @@ Por ejemplo:
 [ 1, 1, 1, 1, 1, 1]
 """
 
-# Adaptado de Javier Ceferino Rodriguez
-
 def invertir_lista(lista):
     invertida = []
     i = 0 
