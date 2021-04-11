@@ -26,14 +26,14 @@ def album_incompleto(A):
     return not A.all()
 
 def comprar_figu(figus_total):
-    return random.randint(0, figus_total-1)
+    return random.randint(0, figus_total)
 
 def cuantas_figus(figus_total):
     album_nuevo = crear_album(figus_total)
     contador = 0
     while album_incompleto(album_nuevo) == True:
         figurita_comprada = comprar_figu(figus_total)
-        album_nuevo[figurita_comprada] = 1
+        album_nuevo[figurita_comprada-1] += 1
         contador += 1
     return contador
 
