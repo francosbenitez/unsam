@@ -16,11 +16,6 @@ def crear_album(figus_total):
 crear = crear_album(670)
 
 def album_incompleto(A):
-    for elemento in A: 
-        if elemento == 0:
-            print(True)
-            break
-        else: 
-            print(False)
+    return not A.all()       
             
 incompleto = album_incompleto(crear)
