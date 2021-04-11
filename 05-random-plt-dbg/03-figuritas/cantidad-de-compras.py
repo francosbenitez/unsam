@@ -26,7 +26,7 @@ def album_incompleto(A):
     return not A.all()
 
 def comprar_figu(figus_total):
-    return random.randint(0, figus_total)
+    return random.randint(1, figus_total)
 
 def cuantas_figus(figus_total):
     album_nuevo = crear_album(figus_total)
