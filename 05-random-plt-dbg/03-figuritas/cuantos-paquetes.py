@@ -75,6 +75,7 @@ for _ in range(n_repeticiones):
 promedio = np.mean(resultados)
 print(f"Para llenar un album de {figus_total} figus compré en promedio {promedio} figus ({n_repeticiones} repeticiones)")
 
+# como se va llenando el album
 def calcular_historia_figus_pegadas(figus_total, figus_paquete):
     album = crear_album(figus_total)
     historia_figus_pegadas = [0]
@@ -94,6 +95,7 @@ plt.xlabel("Cantidad de paquetes comprados")
 plt.ylabel("Cantidad de figuritas pegadas")
 plt.title("La curva de llenado se desacelera al final")
 plt.show()
+
 
 
 
