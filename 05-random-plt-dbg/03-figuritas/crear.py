@@ -6,8 +6,7 @@ Implementá la función crear_album(figus_total) que devuelve un álbum (vector)
 import numpy as np
 
 def crear_album(figus_total):
-    figus_total = np.zeros(figus_total, dtype=np.int64)
-    return figus_total
+    return np.zeros(figus_total, dtype=np.int64)
 
 crear = crear_album(670)
 

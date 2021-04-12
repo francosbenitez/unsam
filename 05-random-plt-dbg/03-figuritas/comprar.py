@@ -7,13 +7,14 @@ import random
 import numpy as np
 
 def crear_album(figus_total):
-    figus_total = np.zeros(figus_total, dtype=np.int64)
-    return figus_total
+    return np.zeros(figus_total, dtype=np.int64)
 
 crear = crear_album(670)
 
 def comprar_figu(figus_total):
-    return random.randint(1, len(crear))
+#    return random.randint(1, len(crear))
+#    return random.randint(1, figus_total)
+    return random.randint(1, figus_total)-1
 
-comprar = comprar_figu(crear)
+comprar = comprar_figu(len(crear))
 

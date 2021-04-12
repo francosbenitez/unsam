@@ -10,12 +10,12 @@ Estas funciones son tan sencillas --cada una puede escribirse en una sola línea
 import numpy as np
 
 def crear_album(figus_total):
-    figus_total = np.zeros(figus_total, dtype=np.int64)
-    return figus_total
+    return np.zeros(figus_total, dtype=np.int64)
 
 crear = crear_album(670)
 
-def album_incompleto(A):
-    return not A.all()       
+def album_incompleto(album):
+    return 0 in album
+#    return not album.all()       
             
 incompleto = album_incompleto(crear)
