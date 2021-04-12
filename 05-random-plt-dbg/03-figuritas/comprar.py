@@ -14,6 +14,7 @@ crear = crear_album(670)
 def comprar_figu(figus_total):
 #    return random.randint(1, len(crear))
 #    return random.randint(1, figus_total)
+#    return random.randint(0, figus_total)
     return random.randint(1, figus_total)-1
 
 comprar = comprar_figu(len(crear))
