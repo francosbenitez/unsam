@@ -8,20 +8,16 @@ Extra: Hay gente que, si en la primera tirada le salen todos dados diferentes, l
 import random
 
 def tirar():
-    tirada=[]
-    for i in range(5):
-        tirada.append(random.randint(1,6)) 
-    return tirada
+    return [random.randint(1, 6) for _ in range(5)]
 
 def es_generala(tirada):
-    return max(tirada) == min(tirada)
+    return tirada.count(tirada[0]) == 5
 
 def generala_tres():
-    G = sum([es_generala(tirar()) for i in range(3)])
-    return True if G > 0 else False
+    return sum([es_generala(tirar()) for _ in range(3)])
 
-N = 1000000
-G = sum([generala_tres() for i in range(N)])
-prob = G/N
-print(f'Tiré {N} veces, de las cuales {G} saqué generala servida.')
+n_tiradas = 1000000
+ganadas = sum([generala_tres() for _ in range(n_tiradas)])
+prob = ganadas / n_tiradas
+print(f'Tiré {n_tiradas} veces, de las cuales {ganadas} saqué generala servida.')
 print(f'Podemos estimar la probabilidad de sacar generala servida en tres tiradas mediante {prob:.6f}.')
