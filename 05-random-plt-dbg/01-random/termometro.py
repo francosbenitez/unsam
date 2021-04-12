@@ -32,6 +32,6 @@ termometro = [random.normalvariate(37.5, 0.2) for _ in range (n)]
 
 minimo = min(termometro)
 maximo = max(termometro)
-promedio = sum(termometro) / n
-media = sorted(termometro)[int(len(termometro) / 2)]
+promedio = sum(termometro)/n
+media = sorted(termometro)[int(len(termometro)/2)]
 print(f'Mínimo: {minimo:.2f} | Máximo: {maximo:.2f} | Promedio: {promedio:.2f} | Media: {media:.2f}')
