@@ -23,13 +23,15 @@ Para encontrar el máximo y mínimo podés usar y agrandar tu código de busqued
 import random
 
 n = 99
+termometro = [random.normalvariate(37.5, 0.2) for _ in range (n)]
 
-termometro = []
-for i in range(n):
-    lote = random.normalvariate(37.5, 0.2)
-    termometro.append(lote)
+# termometro = []
+# for _ in range(n):
+#     lote = random.normalvariate(37.5, 0.2)
+#     termometro.append(lote)
 
 minimo = min(termometro)
 maximo = max(termometro)
-promedio = sum(termometro)/n
-media = sorted(termometro)[int(len(termometro)/2)]
+promedio = sum(termometro) / n
+media = sorted(termometro)[int(len(termometro) / 2)]
+print(f'Mínimo: {minimo:.2f} | Máximo: {maximo:.2f} | Promedio: {promedio:.2f} | Media: {media:.2f}')

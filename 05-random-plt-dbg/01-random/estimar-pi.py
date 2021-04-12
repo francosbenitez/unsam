@@ -28,9 +28,9 @@ def generar_punto():
 
 n = 100000
 m = 0
-for i in range(n):
+for _ in range(n):
     x, y = generar_punto()
-    if x**2 + y**2 < 1:
+    if x ** 2 + y ** 2 < 1:
         m += 1
         
 print(f"pi {4*m/n:.5f}")
