@@ -17,16 +17,21 @@ import random
 
 def tirar():
     tirada=[]
-    for i in range(5):
+    for _ in range(5):
         tirada.append(random.randint(1,6)) 
     return tirada
 
-def es_generala(tirada):
-    return max(tirada) == min(tirada)
+# usando comprension de listas
+def tirar_2():
+    return [random.randint(1, 6) for _ in range(5)]
 
-N = 1000000
-G = sum([es_generala(tirar()) for i in range(N)])
-prob = G/N
-print(f'Tiré {N} veces, de las cuales {G} saqué generala servida.')
+def es_generala(tirada):
+    return tirada.count(tirada[0]) == 5
+#    return max(tirada) == min(tirada)
+
+n_tiradas = 1000000
+ganadas = sum([es_generala(tirar_2()) for _ in range(n_tiradas)])
+prob = ganadas / n_tiradas
+print(f'Tiré {n_tiradas} veces, de las cuales {ganadas} saqué generala servida.')
 print(f'Podemos estimar la probabilidad de sacar generala servida mediante {prob:.6f}.')
     
