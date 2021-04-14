@@ -57,8 +57,8 @@ def medidas_euc():
     plt.ylabel("alto (m)")
     plt.title("Relación diámetro-alto para Eucalipto")
     plt.figure()
-    plt.xlim(0,200) 
-    plt.ylim(0,40) 
+    plt.xlim(0,230) 
+    plt.ylim(0,60) 
 
 def medidas_palo():
     alt_diam_palo = medidas["Palo borracho rosado"]
@@ -69,8 +69,8 @@ def medidas_palo():
     plt.ylabel("alto (m)")
     plt.title("Relación diámetro-alto para Palo borracho rosado")
     plt.figure()
-    plt.xlim(0,200) 
-    plt.ylim(0,40) 
+    plt.xlim(0,230) 
+    plt.ylim(0,60) 
 
 def medidas_jac():
     alt_diam_jac = medidas["Jacarandá"]
@@ -80,8 +80,8 @@ def medidas_jac():
     plt.xlabel("diametro (cm)")
     plt.ylabel("alto (m)")
     plt.title("Relación diámetro-alto para Jacarandá")
-    plt.xlim(0,200) 
-    plt.ylim(0,40) 
+    plt.xlim(0,230) 
+    plt.ylim(0,60) 
     
 plot_palo = medidas_palo()
 plot_euc = medidas_euc()
