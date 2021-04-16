@@ -1,5 +1,5 @@
 import csv
-​
+
 def leer_camion(nombre_archivo):
     with open(nombre_archivo) as f:
         rows = csv.reader(f)
@@ -12,7 +12,7 @@ def leer_camion(nombre_archivo):
             except ValueError:
                 print(f'Fila {n_row}: No pude interpretar: {row}')
     return contenido_camion
-​
+
 def leer_precios(nombre_archivo):
     with open(nombre_archivo) as f:
         rows = csv.reader(f)
@@ -23,9 +23,9 @@ def leer_precios(nombre_archivo):
                 try:
                     precio = float(row[1])
                 except:
-                    print(f'el precio de la fila {n_row} es inválido.')
+                    print(f'el precio de la fila {n_row} es invalido.')
             except:
-                print(f'nombre vacío en la fila {n_row}')
+                print(f'nombre vacio en la fila {n_row}')
             lista_precios[nombre] = precio
         return lista_precios
     
@@ -36,10 +36,9 @@ def hacer_informe(carga,precios):
         tupla = (registro['nombre'],registro['cajones'],registro['precio'],cambio)
         informe.append(tupla)
     return informe
-​
-​
-camion = leer_camion('../Data/camion.csv')
-precios = leer_precios('../Data/precios.csv')
+
+camion = leer_camion('Data/camion.csv')
+precios = leer_precios('Data/precios.csv')
 informe = hacer_informe(camion, precios)
    
 headers = ('Nombre', 'Cajones', 'Precio', 'Cambio')
