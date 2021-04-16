@@ -20,7 +20,7 @@ if types:
 
 import csv
 
-def parse_csv(nombre_archivo, select = None, types=[str, int, float]):
+def parse_csv(nombre_archivo, select = None, types = None):
     '''
     Parsea un archivo CSV en una lista de registros.
     Se puede seleccionar sólo un subconjunto de las columnas, determinando el parámetro select, que debe ser una lista de nombres de las columnas a considerar.
@@ -28,8 +28,6 @@ def parse_csv(nombre_archivo, select = None, types=[str, int, float]):
     with open(nombre_archivo) as f:
         filas = csv.reader(f)
         encabezados = next(filas)
-        if types:
-            filas = [func(val) for func, val in zip(types, filas)]
         if select:
             indices = [encabezados.index(nombre_columna) for nombre_columna in select]
             encabezados = select
@@ -37,6 +35,8 @@ def parse_csv(nombre_archivo, select = None, types=[str, int, float]):
             indices = []
         registros = []
         for fila in filas:
+            if types:
+                fila = [func(val) for func, val in zip(types, fila)]
             if not fila: 
                 continue
             if indices:
@@ -46,5 +46,6 @@ def parse_csv(nombre_archivo, select = None, types=[str, int, float]):
     return registros
 
 camion = parse_csv('Data/camion.csv', types=[str, int, float])
+cajones_retenidos = parse_csv('Data/camion.csv', select=['nombre','cajones'])
 cajones_lote = parse_csv('Data/camion.csv', select=['nombre', 'cajones'], types=[str, int])
 
