@@ -22,30 +22,37 @@ Incorporá todos estos cambios en el archivo fileparse.py.
 
 import csv
 
-def parse_csv(nombre_archivo, types = None, has_headers = None):
+def parse_csv(nombre_archivo, select = None, types = None, has_headers = None):
     '''
     Parsea un archivo CSV en una lista de registros
     '''
     with open(nombre_archivo) as f:
         rows = csv.reader(f)
-        registros = []
         if has_headers == True:
             headers = next(rows)
+            if select:
+                indices = [headers.index(nombre_columna) for nombre_columna in select]
+                headers = select
+            else:
+                indices = []
+            registros = []
             for row in rows:
                 if types:
                     row = [func(val) for func, val in zip(types, row)]
                 if not row:    
                     continue
-            registro = dict(zip(headers, row))
-            registros.append(registro)
+                if indices:
+                    row = [row[index] for index in indices]
+                registro = dict(zip(headers, row))
+                registros.append(registro)
         else: 
+            registros = {}
             for row in rows:
                 if types:
                     row = [func(val) for func, val in zip(types, row)]
                 if not row:   
                     continue
-                lote = (row[0], row[1])
-                registros.append(lote)
+                registros[row[0]] = row[1]
     return registros
 
 precios = parse_csv('Data/precios.csv', types=[str, float], has_headers = False)
