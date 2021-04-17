@@ -17,7 +17,6 @@ Guiate por el ejemplo interactivo que dimos un poco más arriba. Al final, deber
 """
 
 from trabajando import parse_csv
-import csv
 
 def leer_camion(nombre_archivo):
     return parse_csv('Data/camion.csv', select = ['nombre', 'cajones', 'precio'], types = [str, int, float], has_headers = True)
