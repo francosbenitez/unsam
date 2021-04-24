@@ -64,8 +64,9 @@ def parse_csv(nombre_archivo, select = None, types = None, has_headers = None):
                     if not row:   
                         continue
                     registros[row[0]] = row[1]
-        except ValueError:
+        except ValueError as error:
             print(f"Fila {i}: No pude convertir {row}")
+            print(f"Fila {i}: Motivo:", error)
     return registros
 
 camion = parse_csv('Data/missing.csv', types = [str, int, float], 
