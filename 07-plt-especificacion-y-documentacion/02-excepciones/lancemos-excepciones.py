@@ -55,5 +55,4 @@ def parse_csv(nombre_archivo, select = None, types = None, has_headers = None):
                 registros[row[0]] = row[1]
     return registros
 
-
 parse_csv('Data/precios.csv', select = ['nombre','precio'], has_headers = False)
