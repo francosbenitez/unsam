@@ -37,7 +37,6 @@ def parse_csv(nombre_archivo, select = None, types = None, has_headers = None):
     Parsea un archivo CSV en una lista de registros
     '''
     with open(nombre_archivo) as f:
-        try:
             rows = csv.reader(f)
             if has_headers == True:
                 headers = next(rows)
@@ -48,13 +47,17 @@ def parse_csv(nombre_archivo, select = None, types = None, has_headers = None):
                     indices = []
                 registros = []
                 for i, row in enumerate(rows):
-                    if types:
-                        row = [func(val) for func, val in zip(types, row)]
-                    if not row:    
-                        continue
-                    if indices:
-                        row = [row[index] for index in indices]
-                    registro = dict(zip(headers, row))
+                    try:
+                        if types:
+                            row = [func(val) for func, val in zip(types, row)]
+                        if not row:    
+                            continue
+                        if indices:
+                            row = [row[index] for index in indices]
+                        registro = dict(zip(headers, row))
+                    except ValueError as error:
+                        print(f"Fila {i}: No pude convertir {row}")
+                        print(f"Fila {i}: Motivo:", error)
                     registros.append(registro)
             else: 
                 registros = {}
@@ -64,9 +67,7 @@ def parse_csv(nombre_archivo, select = None, types = None, has_headers = None):
                     if not row:   
                         continue
                     registros[row[0]] = row[1]
-        except ValueError as error:
-            print(f"Fila {i}: No pude convertir {row}")
-            print(f"Fila {i}: Motivo:", error)
+        
     return registros
 
 camion = parse_csv('Data/missing.csv', types = [str, int, float], 
