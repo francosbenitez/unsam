@@ -24,6 +24,7 @@ Sí, hay que tener cuidado.
 
 import csv
 import gzip
+import fileparse
 
 def parse_csv(nombre_archivo, select = None, types = None, 
               has_headers = None, 
@@ -85,5 +86,5 @@ with gzip.open('Data/camion.csv.gz', 'rt') as file:
     camion = parse_csv(file, types = [str,int,float], silence_errors = True)
     
 lines = ['name,cajones,precio', 'Lima,100,34.23', 'Naranja,50,91.1', 'Mburucuya,75,45.1']
-camion = fileparse.parse_csv(lines, types=[str,int,float], has_headers = False)
+camion = fileparse.parse_csv(lines, types=[str,int,float], has_headers = True)
 
