@@ -4,9 +4,9 @@ def regresiva(n):
         n -= 1
 
 for x in regresiva(10):
-    print(x, end=' ')
+    print(x, end=" ")
     
-# list(regresiva(10))
+list(regresiva(10))
 
 #%%
 
@@ -16,8 +16,9 @@ def filematch(filename, substr):
             if substr in line:
                 yield line
 
-# for line in open('Data/camion.csv'):
-#     print(line, end='')
+for line in open('Data/camion.csv'):
+    print(line, end="")
         
 for line in filematch('Data/camion.csv', 'Naranja'):
-    print(line, end='')
+    print(line, end="")
+ 
